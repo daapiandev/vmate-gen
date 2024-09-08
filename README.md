@@ -13,6 +13,7 @@ if someone does contact me!
 
 
 # pictures
+![{7ED360E3-38C9-419E-BFBE-A56D770BD11A}](https://github.com/user-attachments/assets/b553ee5e-522e-403a-ac8a-8a2a9ed8dc1f)
 
 
 
