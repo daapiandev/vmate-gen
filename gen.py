@@ -31,44 +31,43 @@ verification_queue = queue.Queue()
 
 
 def generate_account():
-    while True:
-        email = generate_random_string(10) + "@1secmail.com"
-        password = generate_random_string(12)
-        username = generate_random_string(8)
+    email = generate_random_string(10) + "@1secmail.com"
+    password = generate_random_string(12)
+    username = generate_random_string(8)
 
-        data = {
-            "email": email,
-            "password": password,
-            "password_confirmation": password,
-            "username": username
-        }
+    data = {
+        "email": email,
+        "password": password,
+        "password_confirmation": password,
+        "username": username
+    }
 
-        headers = {
-            "content-type": "application/json",
-            "origin": "https://vmateai.com",
-            "referer": "https://vmateai.com/",
-            "sec-ch-ua": '"Chromium";v="128", "Not;A=Brand";v="24", "Microsoft Edge";v="128"',
-            "sec-ch-ua-mobile": "?0",
-            "sec-ch-ua-platform": '"Windows"',
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "cross-site",
-            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0"
-        }
+    headers = {
+        "content-type": "application/json",
+        "origin": "https://vmateai.com",
+        "referer": "https://vmateai.com/",
+        "sec-ch-ua": '"Chromium";v="128", "Not;A=Brand";v="24", "Microsoft Edge";v="128"',
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": '"Windows"',
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "cross-site",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0"
+    }
 
-        response = requests.post("https://api.vmate.ai/api/v1/register_by_email", headers=headers, json=data)
+    response = requests.post("https://api.vmate.ai/api/v1/register_by_email", headers=headers, json=data)
 
-        if response.status_code == 200:
-            print_gradient(f"[+]Generated account: {email}:{password}")
-            
-            
-            with open("credentials.txt", "a") as file:
-                file.write(f"{email}:{password}:\n")
-            
-            
-            verification_queue.put((email, password))
-        else:
-            print("[!]Failed to generate email and password.")
+    if response.status_code == 200:
+        print_gradient(f"[+]Generated account: {email}:{password}")
+        
+        
+        with open("credentials.txt", "a") as file:
+            file.write(f"{email}:{password}:\n")
+        
+        
+        verification_queue.put((email, password))
+    else:
+        print("[!]Failed to generate email and password.")
 
 
 def verify_account():
@@ -156,4 +155,3 @@ for _ in range(loops):
 
 
 verification_queue.join()
-
