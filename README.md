@@ -8,9 +8,8 @@ a request based gen that gens vmate.ai accs and saves the tokens and mail and pa
 
 # disclaimer📕
 
-i am NOT responsible
-
-do NOT sell this
+do NOT sell this free gen
+if someone does contact me!
 
 
 # pictures
