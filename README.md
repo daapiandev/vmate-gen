@@ -1,8 +1,10 @@
 # vmate-gen✅
-a request based gen that gens [vmate.ai](https://vmateai.com/) accs and saves the tokens and mail and password in format email:password:token
+a request based gen that gens [vmate.ai](https://vmateai.com/) accs and saves the tokens and mail and password in format email:password:token a little project i made in my free time
 
 
-
+# features
+⭐request based
+⭐fast
 
 
 
