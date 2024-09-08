@@ -27,3 +27,5 @@ discord: daapia
 5 stars= proxy suport⭐
 
 10 stars= realistic users+config file⭐
+
+20 stars= faster⭐
