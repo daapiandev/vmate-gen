@@ -59,7 +59,7 @@ def generate_and_verify_account():
         print("[!]Failed to generate email and password.")
         return
 
-    time.sleep(3)
+    time.sleep(5)  # Wait for a few seconds to ensure the email is received
     inbox_url = f"https://www.1secmail.com/api/v1/?action=getMessages&login={email.split('@')[0]}&domain=1secmail.com"
     inbox_response = requests.get(inbox_url)
     messages = inbox_response.json()
@@ -102,7 +102,7 @@ def generate_and_verify_account():
             if verify_response.status_code == 200:
                 print_gradient(f"[+]Verified: {email}:{token}")
                 
-                
+              
                 with open("credentials.txt", "a") as file:
                     file.write(f"{email}:{password}:{token}\n")
                 print(f"[+]Saved: {email}:{password}:{token}")
@@ -132,3 +132,4 @@ for _ in range(loops):
 
 for thread in threads_list:
     thread.join()
+
